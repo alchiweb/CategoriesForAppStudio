@@ -17,11 +17,12 @@
  
 `>CategoriesForAppStudio {WAS_APP_NAME} -bc|-c {NAME_COL_CONFIG_1} {NAME_COL_CONFIG_2} ... {NAME_COL_CONFIG_N} [-path {PATH_DEST}]`
  where:
-   - **`WAS_APP_NAME`** is the name of the application (used to the namespace, without spaces or other special characters)
-   - use **`-bc`** to generate the base and eventually the collection(s)
-   - use **`-c`** to only generate the collection(s)
-   - **`NAME_COL_CONFIG`** is the name of the collection config class (= collection config .cs file)
-   - use **`-path PATH_DEST`** to specify the root directory of the VS solution (if the Install_CategoriesForAppStudio directory isn't in the root directory of the VS solution)
+ **`WAS_APP_NAME`** is the name of the application (used to the namespace, without spaces or other special characters)
+ use **`-bc`** to generate the base and eventually the collection(s)
+ use **`-c`** to only generate the collection(s)
+ **`NAME_COL_CONFIG`** is the name of the collection config class (= collection config .cs file)
+ use **`-path PATH_DEST`** to specify the root directory of the VS solution (if the Install_CategoriesForAppStudio directory isn't in the root directory of the VS solution)
+ 
 *Note that the console app will tell you if errors occurs.*
    
 6. Configure the files in your **`WAS_APP_NAME\Sections`** directory, mainly the **`*Config.cs`** files.
