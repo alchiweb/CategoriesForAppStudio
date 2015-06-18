@@ -9,9 +9,9 @@
 2. Download and unzip the Visual Studio source package
 3. Copy [Install_CategoriesForAppStudio directory](Install_CategoriesForAppStudio) to your root directory VS solution
 4. Launch the command line utility (Cmd.exe) ang go to the Install_CategoriesForAppStudio directory in your VS solution
-5. Launch **CategoriesForAppStudio** with the following parameters:
-
-`>CategoriesForAppStudio {WAS_APP_NAME} -bc|-c {NAME_COL_CONFIG_1} {NAME_COL_CONFIG_2} ... {NAME_COL_CONFIG_N} [-path {PATH_DEST}]` where:
+5. Launch **CategoriesForAppStudio**:`
+CategoriesForAppStudio {WAS_APP_NAME} -bc|-c {NAME_COL_CONFIG_1} {NAME_COL_CONFIG_2} ... {NAME_COL_CONFIG_N} [-path {PATH_DEST}]
+` where:
   - **`WAS_APP_NAME`** is the name of the application (used to the namespace, without spaces or other special characters)
   - use **`-bc`** to generate the base and eventually the collection(s)
   - use **`-c`** to only generate the collection(s)
