@@ -4,7 +4,7 @@
  - easily connect to a Rest Api (Json or Xml)
  - easily connect to a Cms Api. Example provided for Wordpress and Prestashop.
  
-**Warning: the XAML for the Windows 8.1 and Windows Phone 8.1 do not show the categories: I only modified the Windows 10 version. **
+**Warning: the XAML for the Windows 8.1 and Windows Phone 8.1 do not show the categories: I only modified the Windows 10 version.**
  
 # How to use it?
 1. **Generate** an application with [*Windows App Studio*](http://appstudio.windows.com), that contains one (or more) collection(s)
