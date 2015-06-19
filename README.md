@@ -114,13 +114,12 @@ SiteUrl = "http://WORDPRESS_SITE_NAME.com",
 ```CSHARP
 ApiFunction = "posts?type=POSTTYPE_NAME"
 ```
-And:
 ```CSHARP
-new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(null, "category", "POSTTYPE_NAME")
+new [COLLECTION_NAME]Parser<[COLLECTION_NAME]Schema>(null, "category", "POSTTYPE_NAME")
 ```
 - to add your own root category id parameter (if needed), in the line:
 ```CSHARP
-new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(),
+new [COLLECTION_NAME]Parser<[COLLECTION_NAME]Schema>(),
 ```
 
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
