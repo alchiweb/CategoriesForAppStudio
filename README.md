@@ -42,7 +42,7 @@ For another REST API, you will just have to create 2 classes (like for Wordpress
   
 ## Prestashop backoffice
 ### Configuring Prestashop site
-Prestashop is provided with a REST API, disable by default.<br/>
+Prestashop is provided with a REST API, disabled by default.<br/>
 In order to enable it (and to create the "**authentication key**", go to the [Prestashop documentation](http://doc.prestashop.com/display/PS14/Chapter+1+-+Creating+Access+to+Back+Office)).
 
 You will have to check, at least:
