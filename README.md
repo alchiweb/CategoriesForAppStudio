@@ -61,18 +61,15 @@ For a quick configuration, all you need to do is:
 ```CSHARP
      SiteUrl = "http://PRESTASHOP_SITE_NAME.com",
 ```
-<br/>
   - to replace the "**API_KEY**" with your own "**authentication key**", in the line:<br/>
 ```CSHARP
      NetCredential = new NetworkCredential("API_KEY", "", "")
 ```
-<br/>
-  - to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:<br/>
+  - to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:
 ```CSHARP
                 new PrestashopParser<NewCol1Schema>("category_2"),
 ```
-<br/>
-Note that null is allowed (this is the default value).
+(null is allowed: this is the default value).
 
 Note that you can change the following parameters, in the **JsonDataProviderWithCategories** constructor:
   - the VisibleItemsType enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items
@@ -98,6 +95,7 @@ Note that the '*Show all files*' option in VS is very useful!).<br/>
 3 files are used to configure your collection:
 - **`[COLLECTION_NAME]Shema - Wordpress.cs`**. This class must inherit from WordpressSchema. No need to add something to this new class (unless you want to!).<br/>
 For the CustomPost version, you can use the **`[COLLECTION_NAME]Shema - Wordpress - CustomPost.cs`** file, if you want...
+- **`[COLLECTION_NAME]WordpressParser - CustomField.cs`** (or **`[COLLECTION_NAME]WordpressParser - CustomPost.cs`** in the CustomPost case). This file is use to change the default behavior of the **WordpressParser**, in the case of custom fields.
 - **`[COLLECTION_NAME]Config.cs`**. This is the main config class.<br/>
 For the CustomPost version, use the **`[COLLECTION_NAME]Config - Wordpress - CustomPost.cs`** file.<br/>
 For a quick configuration, all you need to do is:
@@ -105,28 +103,22 @@ For a quick configuration, all you need to do is:
 ```CSHARP
      SiteUrl = "http://WORDPRESS_SITE_NAME.com",
 ```
-<br/>
   - for the custom post version, to replace the "**POSTTYPE_NAME**" with your own custom post name, in the lines:<br/>
 ```CSHARP
      ApiFunction = "posts?type=POSTTYPE_NAME"
 ```
-<br/>
-And:<br/>
+And:
 ```CSHARP
     new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(null, "category", "POSTTYPE_NAME")
 ```
-<br/>
   - to add your own root category id parameter (if needed), in the line:<br/>
 ```CSHARP
                 new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(),
 ```
-<br/>
 
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
   - the VisibleItemsType enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items
   - the VisibleCategoriesType enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories
-
-- **`[COLLECTION_NAME]WordpressParser - CustomField.cs`** (or **`[COLLECTION_NAME]WordpressParser - CustomPost.cs`** in the CustomPost case). This file is use to change the default behavior of the **WordpressParser**, in the case of custom fields.
 
 Hervé PHILIPPE 
 alchiweb@live.fr / http://alchiweb.fr
