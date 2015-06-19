@@ -60,15 +60,18 @@ For a quick configuration, all you need to do is:
   - to replace the url with your own url, in the line:<br/>
 ```CSHARP
      SiteUrl = "http://PRESTASHOP_SITE_NAME.com",
-```<br/>
+```
+<br/>
   - to replace the "**API_KEY**" with your own "**authentication key**", in the line:<br/>
 ```CSHARP
      NetCredential = new NetworkCredential("API_KEY", "", "")
-```<br/>
+```
+<br/>
   - to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:<br/>
 ```CSHARP
                 new PrestashopParser<NewCol1Schema>("category_2"),
-```<br/>
+```
+<br/>
 Note that null is allowed (this is the default value).
 
 Note that you can change the following parameters, in the **JsonDataProviderWithCategories** constructor:
@@ -101,19 +104,23 @@ For a quick configuration, all you need to do is:
   - to replace the url with your own url, in the line:<br/>
 ```CSHARP
      SiteUrl = "http://WORDPRESS_SITE_NAME.com",
-```<br/>
+```
+<br/>
   - for the custom post version, to replace the "**POSTTYPE_NAME**" with your own custom post name, in the lines:<br/>
 ```CSHARP
      ApiFunction = "posts?type=POSTTYPE_NAME"
-```<br/>
+```
+<br/>
 And:<br/>
 ```CSHARP
     new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(null, "category", "POSTTYPE_NAME")
-```<br/>
+```
+<br/>
   - to add your own root category id parameter (if needed), in the line:<br/>
 ```CSHARP
                 new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(),
-```<br/>
+```
+<br/>
 
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
   - the VisibleItemsType enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items
