@@ -20,8 +20,8 @@
 See further for more details.
 7. **Build and run** your Windows 10 app (with Visual Studio 2015), and enjoy!!!!
  
-# Where are your contents from?<br/>
-For your app, your collections can use contents from:
+# Where are your data from?<br/>
+For your app, your collections can use data from:
 - '**_static resources_**' (directly in your app)
 - '**_dynamic resources_**':
   - public read access
