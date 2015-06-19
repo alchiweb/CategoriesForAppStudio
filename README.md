@@ -60,11 +60,11 @@ For a quick configuration, all you need to do is:
   - to replace the url with your own url, in the line:<br/>
 ```CSHARP
      SiteUrl = "http://PRESTASHOP_SITE_NAME.com",
-```
+```<br/>
   - to replace the "**API_KEY**" with your own "**authentication key**", in the line:<br/>
 ```CSHARP
      NetCredential = new NetworkCredential("API_KEY", "", "")
-```
+```<br/>
   - to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:<br/>
 ```CSHARP
                 new PrestashopParser<NewCol1Schema>("category_2"),
@@ -101,7 +101,7 @@ For a quick configuration, all you need to do is:
   - to replace the url with your own url, in the line:<br/>
 ```CSHARP
      SiteUrl = "http://WORDPRESS_SITE_NAME.com",
-```
+```<br/>
   - for the custom post version, to replace the "**POSTTYPE_NAME**" with your own custom post name, in the lines:<br/>
 ```CSHARP
      ApiFunction = "posts?type=POSTTYPE_NAME"
@@ -109,17 +109,17 @@ For a quick configuration, all you need to do is:
 And:<br/>
 ```CSHARP
     new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(null, "category", "POSTTYPE_NAME")
-```
+```<br/>
   - to add your own root category id parameter (if needed), in the line:<br/>
 ```CSHARP
                 new `[COLLECTION_NAME]`Parser<`[COLLECTION_NAME]`Schema>(),
-```
+```<br/>
 
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
   - the VisibleItemsType enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items
   - the VisibleCategoriesType enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories
 
 - **`[COLLECTION_NAME]WordpressParser - CustomField.cs`** (or **`[COLLECTION_NAME]WordpressParser - CustomPost.cs`** in the CustomPost case). This file is use to change the default behavior of the **WordpressParser**, in the case of custom fields.
-  
+
 Hervé PHILIPPE 
 alchiweb@live.fr / http://alchiweb.fr
