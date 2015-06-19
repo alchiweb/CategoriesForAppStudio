@@ -9,7 +9,7 @@
 2. **Download and unzip** the Visual Studio source package
 3. **Copy [Install_CategoriesForAppStudio directory](Install_CategoriesForAppStudio)** to your root directory VS solution
 4. **Launch `cmd.exe`** (the command line utility) and go to the Install_CategoriesForAppStudio directory in your VS solution
-5. **Launch CategoriesForAppStudio**:
+5. **Launch CategoriesForAppStudio**:<br/>
   `CategoriesForAppStudio {WAS_APP_NAME} -bc|-c {NAME_COL_CONFIG_1} {NAME_COL_CONFIG_2} ... {NAME_COL_CONFIG_N} [-path {PATH_DEST}]` where:
   - **`WAS_APP_NAME`** is the name of the application (used to the namespace, without spaces or other special characters)
   - use **`-bc`** to generate the base and eventually the collection(s)
@@ -20,23 +20,38 @@
  By default, the Prestashop version of these files are used, but you can exclude these files from the project and include an other version (thanks to the '*Show all files*' option in VS!). See further for more details.
 7. **Build and run** your Windows 10 app (with Visual Studio 2015), and enjoy!!!!
  
-# Using a CMS for the backoffice
+# Where are your contents from?<br/>
 For your app, your collections can use contents from:
 - '*static resources*' (directly in your app)
 - '*dynamic resources*':
   - public read access
   - managed by you, with your personal account in the Windows App Studio site
   - saved in the Microsoft Azure cloud
-- an online backoffice:
-in this case, **CategoriesForAppStudio** can help you!
-For a cheap and easy way, you can use a backoffice solution with a Rest Api web service (and usually with categorized contents).
+- an online backoffice:<br/>
+in this case, **CategoriesForAppStudio** can help you!<br/>
+A cheap and easy way, is to use a backoffice solution with a REST API web service (and usually with categorized contents).<br/>
 For example:
-  - a CMS like Wordpress
-  - an e-commerce solution like Prestashop
+- a CMS like Wordpress
+- an e-commerce solution like Prestashop
 
-## Configuring a Prestashop backoffice
+For another REST API, you will just have to create 2 classes (like for Wordpress and Prestashop), in the DataProviders project:
+- [API]Schema.cs file
+- [API]Parser.cs file
+  
+## Prestashop backoffice
+### Configuring Prestashop site
+Prestashop is provided with a REST API, disable by default.<br/>
+In order to enable it (and to create the "**authentication key**", go to the [Prestashop documentation](http://doc.prestashop.com/display/PS14/Chapter+1+-+Creating+Access+to+Back+Office)
 
-## Configuring a Wordpress backoffice
+You will have to check, at least:
+- "**products**" with GET
+- "**categories**" with GET
+
+### Configuring your collection
+
+## Wordpress backoffice
+### Configuring Wordpress site
+### Configuring your collection
 
 Hervé PHILIPPE 
 alchiweb@live.fr / http://alchiweb.fr
