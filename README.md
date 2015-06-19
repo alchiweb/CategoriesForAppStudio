@@ -53,8 +53,10 @@ By default, after the *CategoriesForAppStudio* installation, the Prestashop vers
 
 Note that the '*Show all files*' option in VS is very useful!).<br/>
 
-2 files are used to configure your collection:<br/>
-1. **`[COLLECTION_NAME]Shema - Prestashop.cs`**. This class must inherit from PrestashopSchema. No need to add something to this new class (unless you want to!).<br/>
+2 files are used to configure your collection:
+
+1. **`[COLLECTION_NAME]Shema - Prestashop.cs`**. This class must inherit from PrestashopSchema. No need to add something to this new class (unless you want to!).
+
 2. **`[COLLECTION_NAME]Config - Prestashop.cs`**. This is the main config class.<br/>
 For a quick configuration, all you need to do is:
 - to replace the url with your own url, in the line:
@@ -92,10 +94,13 @@ By default, after the *CategoriesForAppStudio* installation, the Prestashop vers
 
 Note that the '*Show all files*' option in VS is very useful!).<br/>
 
-3 files are used to configure your collection:<br/>
+3 files are used to configure your collection:
+
 1. **`[COLLECTION_NAME]Shema - Wordpress.cs`**. This class must inherit from WordpressSchema. No need to add something to this new class (unless you want to!).<br/>
-For the CustomPost version, you can use the **`[COLLECTION_NAME]Shema - Wordpress - CustomPost.cs`** file, if you want...<br/>
-2. **`[COLLECTION_NAME]WordpressParser - CustomField.cs`** (or **`[COLLECTION_NAME]WordpressParser - CustomPost.cs`** in the CustomPost case). This file is use to change the default behavior of the **WordpressParser**, in the case of custom fields.<br/>
+For the CustomPost version, you can use the **`[COLLECTION_NAME]Shema - Wordpress - CustomPost.cs`** file, if you want...
+
+2. **`[COLLECTION_NAME]WordpressParser - CustomField.cs`** (or **`[COLLECTION_NAME]WordpressParser - CustomPost.cs`** in the CustomPost case). This file is use to change the default behavior of the **WordpressParser**, in the case of custom fields.
+
 3. **`[COLLECTION_NAME]Config.cs`**. This is the main config class.<br/>
 For the CustomPost version, use the **`[COLLECTION_NAME]Config - Wordpress - CustomPost.cs`** file.<br/>
 For a quick configuration, all you need to do is:
