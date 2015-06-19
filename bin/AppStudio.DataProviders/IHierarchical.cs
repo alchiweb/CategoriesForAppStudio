@@ -1,6 +1,6 @@
 ﻿// ***********************************************************************
-// <copyright file="ICategories.cs" company="Alchiweb.fr">
-//     Copyleft AGPL 3.0 / 2015 Alchiweb.fr
+// <copyright file="IHierarchical.cs" company="Alchiweb.fr">
+//     Copyright MIT License / 2015 Alchiweb.fr
 // </copyright>
 // <summary>
 //     Added by CategoriesForAppStudio
@@ -9,14 +9,16 @@
 // </summary>
 // ***********************************************************************
 
-using System.Collections.Generic;
-
 namespace AppStudio.DataProviders
 {
-    public interface ICategories
+    public interface IHierarchical
     {
-        string Type { get; set; }
-        List<string> Categories { get; }
+        string ParentId { get; set; }
     }
 
+    //public interface IHierarchical<T>
+    //{
+    //    T Parent { get; set; }
+    //    ObservableCollection<T> Childs { get; set; }
+    //}
 }

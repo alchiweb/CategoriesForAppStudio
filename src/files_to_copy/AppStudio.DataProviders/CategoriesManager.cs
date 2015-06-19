@@ -1,6 +1,6 @@
 ﻿// ***********************************************************************
 // <copyright file="IDataProviderWithCategories.cs" company="Alchiweb.fr">
-//     Copyleft AGPL 3.0 / 2015 Alchiweb.fr
+//     Copyright MIT License / 2015 Alchiweb.fr
 // </copyright>
 // <summary>
 //     Added by CategoriesForAppStudio

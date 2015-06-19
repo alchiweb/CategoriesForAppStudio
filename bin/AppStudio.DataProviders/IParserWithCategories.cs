@@ -1,6 +1,6 @@
 ﻿// ***********************************************************************
-// <copyright file="JsonSchema.cs" company="Alchiweb.fr">
-//     Copyleft AGPL 3.0 / 2015 Alchiweb.fr
+// <copyright file="IParserWithCategories.cs" company="Alchiweb.fr">
+//     Copyright MIT License / 2015 Alchiweb.fr
 // </copyright>
 // <summary>
 //     Added by CategoriesForAppStudio
@@ -9,12 +9,10 @@
 // </summary>
 // ***********************************************************************
 
-using Newtonsoft.Json.Linq;
-
-namespace AppStudio.DataProviders.JsonClient
+namespace AppStudio.DataProviders
 {
-    public class JsonSchema : SchemaBase
+    public interface IParserWithCategories<T> : IParser<T> where T : SchemaBase, ICategories, IHierarchical
     {
-//        public JToken Data { get; set; }
+        CategoriesManager<T> CategoriesManager { get; set; }
     }
 }

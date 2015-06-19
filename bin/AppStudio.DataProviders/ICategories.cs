@@ -1,6 +1,6 @@
 ﻿// ***********************************************************************
-// <copyright file="IParserWithCategories.cs" company="Alchiweb.fr">
-//     Copyleft AGPL 3.0 / 2015 Alchiweb.fr
+// <copyright file="ICategories.cs" company="Alchiweb.fr">
+//     Copyright MIT License / 2015 Alchiweb.fr
 // </copyright>
 // <summary>
 //     Added by CategoriesForAppStudio
@@ -9,10 +9,14 @@
 // </summary>
 // ***********************************************************************
 
+using System.Collections.Generic;
+
 namespace AppStudio.DataProviders
 {
-    public interface IParserWithCategories<T> : IParser<T> where T : SchemaBase, ICategories, IHierarchical
+    public interface ICategories
     {
-        CategoriesManager<T> CategoriesManager { get; set; }
+        string Type { get; set; }
+        List<string> Categories { get; }
     }
+
 }
