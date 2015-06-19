@@ -134,4 +134,4 @@ Note that you can add the following parameters, in the **JsonDataProviderWithCat
 
 alchiweb[at]live.fr / http://alchiweb.fr
 
-If you have questions, let me now!
+If you have questions, let me know!
