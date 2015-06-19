@@ -59,6 +59,7 @@ Note that the '*Show all files*' option in VS is very useful!).<br/>
 
 2. **`[COLLECTION_NAME]Config - Prestashop.cs`**. This is the main config class.<br/>
 For a quick configuration, all you need to do is:
+
 - to replace the url with your own url, in the line:
 ```CSHARP
 SiteUrl = "http://PRESTASHOP_SITE_NAME.com",
@@ -67,7 +68,7 @@ SiteUrl = "http://PRESTASHOP_SITE_NAME.com",
 ```CSHARP
 NetCredential = new NetworkCredential("API_KEY", "", "")
 ```
-- to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:
+  - to replace the "**category_2**" with your own root category id (in the example, the root category is "2"), in the line:
 ```CSHARP
 new PrestashopParser<NewCol1Schema>("category_2"),
 ```
@@ -104,6 +105,7 @@ For the CustomPost version, you can use the **`[COLLECTION_NAME]Shema - Wordpres
 3. **`[COLLECTION_NAME]Config.cs`**. This is the main config class.<br/>
 For the CustomPost version, use the **`[COLLECTION_NAME]Config - Wordpress - CustomPost.cs`** file.<br/>
 For a quick configuration, all you need to do is:
+
 - to replace the url with your own url, in the line:
 ```CSHARP
 SiteUrl = "http://WORDPRESS_SITE_NAME.com",
