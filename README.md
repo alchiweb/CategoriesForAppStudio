@@ -126,7 +126,10 @@ Note that you can add the following parameters, in the **JsonDataProviderWithCat
 - the **VisibleItemsType** enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items.
 - the **VisibleCategoriesType** enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories.
 
-**If you have questions, let me now!**
+# Credits
 
 **Hervé PHILIPPE**
-**alchiweb**[at]**live.fr** / **http://alchiweb.fr**
+
+alchiweb[at]live.fr / http://alchiweb.fr
+
+If you have questions, let me now!
