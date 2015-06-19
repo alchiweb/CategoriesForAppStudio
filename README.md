@@ -123,8 +123,10 @@ new [COLLECTION_NAME]Parser<[COLLECTION_NAME]Schema>(),
 ```
 
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
-- the VisibleItemsType enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items
-- the VisibleCategoriesType enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories
+- the **VisibleItemsType** enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items.
+- the **VisibleCategoriesType** enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories.
 
-Hervé PHILIPPE 
-alchiweb@live.fr / http://alchiweb.fr
+**If you have questions, let me now!**
+
+**Hervé PHILIPPE**
+**alchiweb**[at]**live.fr** / **http://alchiweb.fr**
