@@ -4,9 +4,11 @@
  - easily connect to a Rest Api (Json or Xml)
  - easily connect to a Cms Api. Example provided for Wordpress and Prestashop.
  
+ **Warning: the XAML for the Windows 8.1 and Windows Phone 8.1 do not show the categories: I only modified the Windows 10 version. **
+ 
 # How to use it?
 1. **Generate** an application with [*Windows App Studio*](http://appstudio.windows.com), that contains one (or more) collection(s)
-2. **Download and unzip** the Visual Studio source package
+2. **Download and unzip** the Visual Studio source package **for Windows 10**
 3. **Copy [Install_CategoriesForAppStudio directory](Install_CategoriesForAppStudio)** to your root directory VS solution
 4. **Launch `cmd.exe`** (the command line utility) and go to the Install_CategoriesForAppStudio directory in your VS solution
 5. **Launch CategoriesForAppStudio**:<br/>
