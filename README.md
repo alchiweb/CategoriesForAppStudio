@@ -1,13 +1,13 @@
+**New version 2015.09.05: now compatible with the last version of Windows App Studio, but only with Windows 10 apps.**
+ 
 # What is **CategoriesForAppStudio**?
 **CategoriesForAppStudio** modify your [*Windows App Studio*](http://appstudio.windows.com) Visual Studio solution, in order to:
  - use generic categories for your items collections, show them and navigate through categories
  - easily connect to a Rest Api (Json or Xml)
  - easily connect to a Cms Api. Example provided for Wordpress and Prestashop.
  
-**Warning: the XAML for the Windows 8.1 and Windows Phone 8.1 do not show the categories: I only modified the Windows 10 version.**
- 
 # How to use it?
-1. **Generate** an application with [*Windows App Studio*](http://appstudio.windows.com), that contains one (or more) collection(s)
+1. **Generate** a Windows 10 application with [*Windows App Studio*](http://appstudio.windows.com), that contains one (or more) collection(s)
 2. **Download and unzip** the Visual Studio source package **for Windows 10**
 3. **Copy [Install_CategoriesForAppStudio directory](Install_CategoriesForAppStudio)** to your root directory VS solution
 4. **Launch `cmd.exe`** (the command line utility) and go to the Install_CategoriesForAppStudio directory in your VS solution
@@ -127,6 +127,17 @@ new [COLLECTION_NAME]Parser<[COLLECTION_NAME]Schema>(),
 Note that you can add the following parameters, in the **JsonDataProviderWithCategories** constructor:
 - the **VisibleItemsType** enum parameter: **All**, **CurrentLevel** and **AllForCurrentCategory**, to show the appropriate items.
 - the **VisibleCategoriesType** enum parameter: **All**, **CurrentLevel** and **NotEmpty**, to show the appropriate categories.
+
+# TODO list (v2015.09.05)
+
+- with the previous version of Windows App Studio, a config variable was stored in a class (xDataProvider) but is now store in the DataModelBase class. I made a new config variable for the categories, but I didn't move it. It would be great if the 2 config variables were stored in the same class!
+- the XAML for the categories list could be better: I used an existing list layout, but it isn't very good.
+- the "AppStudio.DataProviders" directory's project could be in the WindowsAppStudio.DataProviders dll (https://github.com/wasteam/waslibs/tree/master/src/AppStudio.DataProviders)
+
+# Changelog
+
+- v2015.09.05 : compatible with the official Windows 10 generation of Windows App Studio (online since late of july 2015)
+- v2015.06.19 : first version, compatible with the beta Windows 10 generation (with Win8/WP8 solutions)
 
 # Credits
 
