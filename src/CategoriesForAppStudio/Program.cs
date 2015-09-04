@@ -78,13 +78,15 @@ namespace CmsForWas
         }
         static string InstallFiles(string destFolder, string appName, List<string> collections, bool withBase)
         {
-            string newtonsoft_package_framework = "portable46-win81+wpa81";
-            string newtonsoft_package_framework_path = "portable-net45+wp80+win8+wpa81+dnxcore50";
+            //string newtonsoft_package_framework = "portable46-win81+wpa81";
+            //string newtonsoft_package_framework_path = "portable-net45+wp80+win8+wpa81+dnxcore50";
             string newtonsoft_package_version = "7.0.1-beta3";
-            string search_newtonsoft_in_package_file = @"(.*id=\""Newtonsoft\.Json\"" version=\"")[^\""]*(\"" targetFramework=\"")[^\""]*(\"".*)";
-            string replace_newtonsoft_in_package_file = string.Format("${{1}}{0}${{2}}{1}$3", newtonsoft_package_version, newtonsoft_package_framework);
-            string search_newtonsoft_in_proj_file = @"(.*Newtonsoft\.Json\.)[^\\\\]*(\\lib\\)[^\\\\]*(.*)";
-            string replace_newtonsoft_in_proj_file = string.Format("${{1}}{0}${{2}}{1}$3", newtonsoft_package_version, newtonsoft_package_framework_path);
+            string search_newtonsoft_in_project_json_file = @"(\""Newtonsoft\.Json\"": \"")[^\""]*(\"")";
+            string replace_newtonsoft_in_project_json_file = string.Format("${{1}}{0}$2", newtonsoft_package_version);
+            //string search_newtonsoft_in_package_file = @"(.*id=\""Newtonsoft\.Json\"" version=\"")[^\""]*(\"" targetFramework=\"")[^\""]*(\"".*)";
+            //string replace_newtonsoft_in_package_file = string.Format("${{1}}{0}${{2}}{1}$3", newtonsoft_package_version, newtonsoft_package_framework);
+            //string search_newtonsoft_in_proj_file = @"(.*Newtonsoft\.Json\.)[^\\\\]*(\\lib\\)[^\\\\]*(.*)";
+            //string replace_newtonsoft_in_proj_file = string.Format("${{1}}{0}${{2}}{1}$3", newtonsoft_package_version, newtonsoft_package_framework_path);
             string replace_alchiweb_modified = "////////////////////////////////////////\n// Modified by CategoriesForAppStudio //\n////////////////////////////////////////\n// CategoriesForAppStudio             //\n// Created by Hervé PHILIPPE          //\n// alchiweb@live.fr / alchiweb.fr     //\n////////////////////////////////////////\n\n";
 
             string success_base_install = "Success! All base files were successfully modified.\n";
@@ -97,117 +99,92 @@ namespace CmsForWas
             string error_base_already_updated = "Error: base files are already updated.\n";
             string error_collection_already_updated = "Error: the files for the collection \"{0}\" are already updated.\n";
             FileToInstall[] base_files_to_install = {
-                                                         new FileToCopy(@"AppStudio.DataProviders\CategoriesManager.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\ICategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\IDataProviderWithCategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\IHierarchical.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\IParserWithCategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonDataConfig.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonDataProvider.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonDataProviderWithCategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonInternetRequest.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonSchema.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\JsonSchemaWithCategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\Parser\JsonParser.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\JsonClient\Parser\JsonParserWithCategories.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\Prestashop\PrestashopSchema.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\Prestashop\Parser\PrestashopParser.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\Wordpress\WordpressSchema.cs"),
-                                                         new FileToCopy(@"AppStudio.DataProviders\Wordpress\Parser\WordpressParser.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\ViewModels\DetailViewModelWithCategories.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\ViewModels\ListViewModelWithCategories.cs"),
-                                                         new FileToUpdate(String.Format(@"{0}\ViewModels\ItemViewModel.cs", appName), new NameValueCollection{
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\CategoriesManager.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\ICategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\IDataProviderWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\IHierarchical.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\IParserWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonDataConfig.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonDataProvider.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonDataProviderWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonHttpRequest.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonHttpRequestResult.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonHttpRequestSettings.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonSchema.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\JsonSchemaWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\Parser\JsonParser.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Json\Parser\JsonParserWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Prestashop\PrestashopSchema.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Prestashop\Parser\PrestashopParser.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Wordpress\WordpressSchema.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\AppStudio.DataProviders\Wordpress\Parser\WordpressParser.cs"),
+														 
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\ViewModels\DetailViewModelWithCategories.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\ViewModels\ListViewModelWithCategories.cs"),
+                                                         new FileToUpdate(String.Format(@"{0}.W10\ViewModels\ItemViewModel.cs", appName), new NameValueCollection{
                                                              { @"^(.*)",
                                                                  replace_alchiweb_modified + "using AppStudio.DataProviders;\n$1"},
                                                              { @"(.*ISyncItem<ItemViewModel>)(.*)",
                                                                  "$1, IHierarchical$2"},
                                                              {@"(.*private string _content;)(.*)",
                                                                  "$1\n        private string _parent_id;$2"},
-                                                             {@"(.*public string _id \{ get; set; \})(.*)",
+                                                             {@"(.*public string Id \{ get; set; \})(.*)",
                                                                  "$1\n\n        public string ParentId\n        {\n            get { return _parent_id; }\n            set { SetProperty(ref _parent_id, value); }\n        }\n$2"},
                                                              {@"(.* \|\| this\.Content \!= other\.Content)(.*)",
                                                                  "$1 || this.ParentId != other.ParentId$2"},
                                                              {@"(.*this\.Content = other.Content;)(.*)",
                                                                  "$1\n            this.ParentId = other.ParentId;$2"}
                                                                                                           }),
-                                                         new FileToUpdate(String.Format(@"{0}.W10\ViewModels\ShellViewModel.cs", appName), new NameValueCollection{
-                                                             { @"^(.*)",
-                                                                 replace_alchiweb_modified + "$1"},
-                                                             {@"(.*)(OnPropertyChanged\(\""GoBackCommand\""\);.*)",
-                                                                 "$1var parameter_item = parameter as ItemViewModel;\n            if (parameter_item != null && parameter_item.PageTitle != null)\n                AppTitle = parameter_item.PageTitle;\n            $2"} }),
-                                                         new FileToUpdate(String.Format(@"{0}.W10\packages.config", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
+                                                         //new FileToUpdate(String.Format(@"{0}.W10\ViewModels\ShellViewModel.cs", appName), new NameValueCollection{
+                                                             //{ @"^(.*)",
+                                                                 //replace_alchiweb_modified + "$1"},
+                                                             //{@"(.*)(OnPropertyChanged\(\""GoBackCommand\""\);.*)",
+                                                                 //"$1var parameter_item = e.Parameter as ItemViewModel;\n            if (parameter_item != null && parameter_item.PageTitle != null)\n                AppTitle = parameter_item.PageTitle;\n            $2"} }),
+                                                         new FileToUpdate(String.Format(@"{0}.W10\project.json", appName), new NameValueCollection{
+                                                             { search_newtonsoft_in_project_json_file, replace_newtonsoft_in_project_json_file } }),
+
                                                          new FileToUpdate(String.Format(@"{0}.W10\{0}.W10.csproj", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
-                                                         }),
-                                                         new FileToUpdate(String.Format(@"{0}.Windows\packages.config", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
-                                                         new FileToUpdate(String.Format(@"{0}.Windows\{0}.Windows.csproj", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
-                                                         }),
-                                                         new FileToUpdate(@"AppStudio.Common\packages.config", new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
-                                                         new FileToUpdate(@"AppStudio.Common\AppStudio.Common.csproj", new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
-                                                         }),
-                                                         new FileToUpdate(String.Format(@"{0}.WindowsPhone\packages.config", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
-                                                         new FileToUpdate(String.Format(@"{0}.WindowsPhone\{0}.WindowsPhone.csproj", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
-                                                         }),
-                                                         new FileToUpdate(String.Format(@"{0}\packages.config", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
-                                                         new FileToUpdate(String.Format(@"{0}\{0}.csproj", appName), new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
                                                              {@"(.*<Compile Include=\""Properties\\AssemblyInfo\.cs\"" \/>)(.*)",
-                                                                 "$1\n    <Compile Include=\"ViewModels\\DetailViewModelWithCategories.cs\" />\n    <Compile Include=\"ViewModels\\ListViewModelWithCategories.cs\" />$2"},
-                                                         }),
-                                                         new FileToUpdate(@"AppStudio.DataProviders\packages.config", new NameValueCollection{
-                                                             { search_newtonsoft_in_package_file, replace_newtonsoft_in_package_file } }),
-                                                         new FileToUpdate(@"AppStudio.DataProviders\AppStudio.DataProviders.csproj", new NameValueCollection{
-                                                             { search_newtonsoft_in_proj_file, replace_newtonsoft_in_proj_file },
-                                                             {@"(.*<Compile Include=\""Properties\\AssemblyInfo\.cs\"" \/>)(.*)",
-                                                                 "$1\n    <Compile Include=\"CategoriesManager.cs\" />\n    <Compile Include=\"ICategories.cs\" />\n    <Compile Include=\"IDataProviderWithCategories.cs\" />\n    <Compile Include=\"IHierarchical.cs\" />\n    <Compile Include=\"IParserWithCategories.cs\" />\n    <Compile Include=\"JsonClient\\JsonDataConfig.cs\" />\n    <Compile Include=\"JsonClient\\JsonDataProvider.cs\" />\n    <Compile Include=\"JsonClient\\JsonDataProviderWithCategories.cs\" />\n    <Compile Include=\"JsonClient\\JsonInternetRequest.cs\" />\n    <Compile Include=\"JsonClient\\JsonSchema.cs\" />\n    <Compile Include=\"JsonClient\\JsonSchemaWithCategories.cs\" />\n    <Compile Include=\"JsonClient\\Parser\\JsonParser.cs\" />\n    <Compile Include=\"JsonClient\\Parser\\JsonParserWithCategories.cs\" />\n    <Compile Include=\"Prestashop\\PrestashopSchema.cs\" />\n    <Compile Include=\"Prestashop\\Parser\\PrestashopParser.cs\" />\n    <Compile Include=\"Wordpress\\WordpressSchema.cs\" />\n    <Compile Include=\"Wordpress\\Parser\\WordpressParser.cs\" />$2"},
-                                                         }),
+                                                                 "$1\n    <Compile Include=\"ViewModels\\DetailViewModelWithCategories.cs\" />\n    <Compile Include=\"ViewModels\\ListViewModelWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\CategoriesManager.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\ICategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\IDataProviderWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\IHierarchical.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\IParserWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonDataConfig.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonDataProvider.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonDataProviderWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonHttpRequest.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonHttpRequestResult.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonHttpRequestSettings.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonSchema.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\JsonSchemaWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\Parser\\JsonParser.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Json\\Parser\\JsonParserWithCategories.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Prestashop\\PrestashopSchema.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Prestashop\\Parser\\PrestashopParser.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Wordpress\\WordpressSchema.cs\" />\n    <Compile Include=\"AppStudio.DataProviders\\Wordpress\\Parser\\WordpressParser.cs\" />$2"},
+                                                                 }),
             };
             FileToInstall[] collection_files_to_install = {
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_CONFIG_NAME]Config - Prestashop.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_CONFIG_NAME]Config - Wordpress - CustomPost.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_CONFIG_NAME]Config - Wordpress.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_SCHEMA_NAME]Schema - Prestashop.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_SCHEMA_NAME]Schema - Wordpress - CustomPost.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_SCHEMA_NAME]Schema - Wordpress.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_CONFIG_NAME]WordpressParser - CustomPost.cs"),
-                                                         new FileToCopy(@"[WAS_APP_NAME]\Sections\[COLLECTION_CONFIG_NAME]WordpressParser - CustomField.cs"),
-                                                         new FileToUpdate(@"[WAS_APP_NAME]\ViewModels\MainViewModel.cs", new NameValueCollection{
-                                                            {@"(.* new ListViewModel)(<[COLLECTION_SCHEMA_NAME]Schema>.*)",
-                                                                "$1WithCategories$2"},
-                                                            {@"(.*public ListViewModel)(<[COLLECTION_SCHEMA_NAME]Schema>.*)",
-                                                                "$1WithCategories$2"}
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_CONFIG_NAME]Config - Prestashop.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_CONFIG_NAME]Config - Wordpress - CustomPost.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_CONFIG_NAME]Config - Wordpress.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_SCHEMA_NAME]Schema - Prestashop.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_SCHEMA_NAME]Schema - Wordpress - CustomPost.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_SCHEMA_NAME]Schema - Wordpress.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_CONFIG_NAME]WordpressParser - CustomPost.cs"),
+                                                         new FileToCopy(@"[WAS_APP_NAME].W10\Sections\[COLLECTION_CONFIG_NAME]WordpressParser - CustomField.cs"),
+                                                         new FileToUpdate(@"[WAS_APP_NAME].W10\ViewModels\MainViewModel.cs", new NameValueCollection{
+                                                             { @"^(.*)",
+                                                                 "using AppStudio.DataProviders.Json;\n$1"},
+                                                             { @"(.* new ListViewModel)[^>]*([COLLECTION_SCHEMA_NAME]Schema>.*)",
+                                                                "$1WithCategories<JsonDataConfig, $2"},
+                                                            {@"(.*public ListViewModel)[^>]*([COLLECTION_SCHEMA_NAME]Schema>.*)",
+                                                                "$1WithCategories<JsonDataConfig, $2"}
                                                             }),
-                                                         new FileToUpdate(@"[WAS_APP_NAME].Shared\Views\[COLLECTION_CONFIG_NAME]DetailPage.cs", new NameValueCollection{
-                                                            {@"(.*new DetailViewModel)(.*)",
-                                                                "$1WithCategories$2"},
-                                                            {@"(.*public DetailViewModel)(.*)",
-                                                                "$1WithCategories$2"}
-                                                            }),
-                                                         new FileToCopy(@"[WAS_APP_NAME].Shared\Views\[COLLECTION_CONFIG_NAME]ListPage.cs"),
                                                          new FileToUpdate(@"[WAS_APP_NAME].W10\Views\[COLLECTION_CONFIG_NAME]DetailPage.xaml.cs", new NameValueCollection{
-                                                            {@"(.*new DetailViewModel)(.*)",
-                                                                "$1WithCategories$2"},
-                                                            {@"(.*public DetailViewModel)(.*)",
-                                                                "$1WithCategories$2"}
+                                                             { @"^(.*)",
+                                                                 "using AppStudio.DataProviders.Json;\n$1"},
+                                                             { @"(.* new DetailViewModel)[^>]*([COLLECTION_SCHEMA_NAME]Schema>.*)",
+                                                                "$1WithCategories<JsonDataConfig, $2"},
+                                                            {@"(.*public DetailViewModel)[^>]*([COLLECTION_SCHEMA_NAME]Schema>.*)",
+                                                                "$1WithCategories<JsonDataConfig, $2"}
                                                             }),
                                                          new FileToCopy(@"[WAS_APP_NAME].W10\Views\[COLLECTION_CONFIG_NAME]ListPage.xaml.cs"),
                                                          new FileToUpdate(@"[WAS_APP_NAME].W10\Views\[COLLECTION_CONFIG_NAME]ListPage.xaml", new NameValueCollection{
-                                                            {@"(.*<Setter Target=\""bottomAppBar\.Visibility\"" Value=\""Collapsed\""\/>)(.*)",
-                                                                "$1\n                        <Setter Target=\"topAppBar.Visibility\" Value=\"Collapsed\"/>\n                        <Setter Target=\"mainPanel.Margin\" Value=\"0,48,0,0\"/>$2"},
+                                                            //{@"(.*<Setter Target=\""bottomAppBar\.Visibility\"" Value=\""Collapsed\""\/>)(.*)",
+                                                            //    "$1\n                        <Setter Target=\"topAppBar.Visibility\" Value=\"Collapsed\"/>\n                        <Setter Target=\"mainPanel.Margin\" Value=\"0,48,0,0\"/>$2"},
+                                                            {@"(.*<Setter Target=\""appBar\.\(Grid.Row\)\"" Value=\"")5(.*)",
+                                                                "${1}6$2"},
                                                             {@"(.*)(<RowDefinition Height=\""\*\""\/>.*)",
                                                                 "$1<RowDefinition Height=\"Auto\"/>\n                $2"},
-                                                            {@"(.*)(<layouts:ListLayout )(.*)",
-                                                                "$1<layouts:ListLayout DataContext=\"{Binding}\" ItemsSource=\"{Binding Categories}\"\n                                HasLoadDataErrors=\"{Binding HasLoadDataErrors, FallbackValue=False}\"\n                                ItemClickCommand=\"{Binding ItemClickCommand}\" ListLayoutTemplate=\"MenuListPhoto\"/>\n            $2 Grid.Row=\"1\" $3"}
+                                                            {@"(.*)(<list_layouts:[^ ]* [^>]*Grid\.Row=\"")3([^>]*>[\n|\r|\r\n| ]*.*Grid\.Row=\"")4",
+                                                                "$1<list_layouts:MenuText Grid.Row=\"3\" Grid.ColumnSpan=\"2\" DataContext=\"{Binding ViewModel}\" ItemsSource=\"{Binding Categories}\" ItemClickCommand=\"{Binding ItemClickCommand}\" OneRowModeEnabled=\"False\"/>\n            ${2}4${3}5"}
                                                             }),
-                                                         new FileToUpdate(@"[WAS_APP_NAME]\[WAS_APP_NAME].csproj", new NameValueCollection{
+                                                         new FileToUpdate(@"[WAS_APP_NAME].W10\[WAS_APP_NAME].W10.csproj", new NameValueCollection{
                                                              {@"(.*Include=""Sections\\[COLLECTION_CONFIG_NAME]Config)(.cs"".*)",
                                                                  "$1 - Prestashop$2"},
                                                              {@"(.*Include=""Sections\\[COLLECTION_SCHEMA_NAME]Schema)(.cs"".*)",
@@ -217,7 +194,7 @@ namespace CmsForWas
 
             if (withBase)
             {
-                bool already_updated = File.Exists(destFolder + @"\AppStudio.DataProviders\CategoriesManager.cs");
+                bool already_updated = File.Exists(destFolder + String.Format(@"\{0}.W10\AppStudio.DataProviders\CategoriesManager.cs", appName));
                 if (!already_updated)
                 {
                     foreach (var file in base_files_to_install)
@@ -248,7 +225,7 @@ namespace CmsForWas
                         string file_txt = File.ReadAllText(string.Format(@"{0}\{1}.W10\Views\{2}DetailPage.xaml.cs", destFolder, appName, collection_config_name));
                         already_updated = Regex.IsMatch(file_txt, ".*DetailViewModelWithCategories.*");
                         if (!already_updated)
-                            result_regex = Regex.Match(File.ReadAllText(String.Format(@"{0}\{1}\Sections\{2}Config.cs", destFolder, appName, collection_config_name)),
+                            result_regex = Regex.Match(File.ReadAllText(String.Format(@"{0}\{1}.W10\Sections\{2}Config.cs", destFolder, appName, collection_config_name)),
                                 @".*new DetailPageConfig<([^>]*)Schema>[\n|\r|\r\n| ]*\{[\n|\r|\r\n| ]*Title = \""([^\""]*)\""");
                     }
                     catch (Exception)
