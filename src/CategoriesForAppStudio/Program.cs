@@ -80,7 +80,7 @@ namespace CmsForWas
         {
             //string newtonsoft_package_framework = "portable46-win81+wpa81";
             //string newtonsoft_package_framework_path = "portable-net45+wp80+win8+wpa81+dnxcore50";
-            string newtonsoft_package_version = "7.0.1-beta3";
+            string newtonsoft_package_version = "7.0.1";
             string search_newtonsoft_in_project_json_file = @"(\""Newtonsoft\.Json\"": \"")[^\""]*(\"")";
             string replace_newtonsoft_in_project_json_file = string.Format("${{1}}{0}$2", newtonsoft_package_version);
             //string search_newtonsoft_in_package_file = @"(.*id=\""Newtonsoft\.Json\"" version=\"")[^\""]*(\"" targetFramework=\"")[^\""]*(\"".*)";
