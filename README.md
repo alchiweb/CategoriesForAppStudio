@@ -1,4 +1,4 @@
-**New version 2015.09.05: now compatible with the last version of Windows App Studio, but only with Windows 10 apps.**
+**New version 2015.11.03 (compatible with the last version of Windows App Studio, but only with Windows 10 apps).**
  
 # What is **CategoriesForAppStudio**?
 **CategoriesForAppStudio** modify your [*Windows App Studio*](http://appstudio.windows.com) Visual Studio solution, in order to:
@@ -136,6 +136,7 @@ Note that you can add the following parameters, in the **JsonDataProviderWithCat
 
 # Changelog
 
+- v2015.11.03 : compatible with the official Windows 10 generation of Windows App Studio
 - v2015.09.05 : compatible with the official Windows 10 generation of Windows App Studio (online since late of july 2015)
 - v2015.06.19 : first version, compatible with the beta Windows 10 generation (with Win8/WP8 solutions)
 

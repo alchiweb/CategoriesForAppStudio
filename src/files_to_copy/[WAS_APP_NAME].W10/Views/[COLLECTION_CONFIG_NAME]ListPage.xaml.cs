@@ -18,7 +18,7 @@ namespace [WAS_APP_NAME].Views
 
         public ListViewModelWithCategories<JsonDataConfig, [COLLECTION_SCHEMA_NAME]Schema> ViewModel { get; set; }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             await this.ViewModel.LoadDataAsync(e.Parameter as ItemViewModel);
 
