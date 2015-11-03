@@ -12,8 +12,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using AppStudio.Common.Cache;
-using AppStudio.Common.DataSync;
+using AppStudio.Uwp.Cache;
+using AppStudio.Uwp.DataSync;
 using AppStudio.DataProviders;
 using [WAS_APP_NAME].Config;
 

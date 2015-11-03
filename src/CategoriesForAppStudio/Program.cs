@@ -177,8 +177,8 @@ namespace CmsForWas
                                                          new FileToUpdate(@"[WAS_APP_NAME].W10\Views\[COLLECTION_CONFIG_NAME]ListPage.xaml", new NameValueCollection{
                                                             //{@"(.*<Setter Target=\""bottomAppBar\.Visibility\"" Value=\""Collapsed\""\/>)(.*)",
                                                             //    "$1\n                        <Setter Target=\"topAppBar.Visibility\" Value=\"Collapsed\"/>\n                        <Setter Target=\"mainPanel.Margin\" Value=\"0,48,0,0\"/>$2"},
-                                                            {@"(.*<Setter Target=\""appBar\.\(Grid.Row\)\"" Value=\"")5(.*)",
-                                                                "${1}6$2"},
+                                                            //{@"(.*<Setter Target=\""appBar\.\(Grid.Row\)\"" Value=\"")5(.*)",
+                                                            //    "${1}6$2"},
                                                             {@"(.*)(<RowDefinition Height=\""\*\""\/>.*)",
                                                                 "$1<RowDefinition Height=\"Auto\"/>\n                $2"},
                                                             {@"(.*)(<list_layouts:[^ ]* [^>]*Grid\.Row=\"")3([^>]*>[\n|\r|\r\n| ]*.*Grid\.Row=\"")4",

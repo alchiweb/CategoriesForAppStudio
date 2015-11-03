@@ -1,3 +1,4 @@
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using [WAS_APP_NAME].Sections;
 using [WAS_APP_NAME].ViewModels;
@@ -6,7 +7,7 @@ using AppStudio.DataProviders.Json;
 
 namespace [WAS_APP_NAME].Views
 {
-    public sealed partial class [COLLECTION_CONFIG_NAME]ListPage : PageBase
+    public sealed partial class [COLLECTION_CONFIG_NAME]ListPage : Page
     {
         private DataTransferManager _dataTransferManager;
         public [COLLECTION_CONFIG_NAME]ListPage()
@@ -17,12 +18,10 @@ namespace [WAS_APP_NAME].Views
 
         public ListViewModelWithCategories<JsonDataConfig, [COLLECTION_SCHEMA_NAME]Schema> ViewModel { get; set; }
 
-        protected async override void LoadState(object navParameter)
-        {
-            await this.ViewModel.LoadDataAsync(navParameter as ItemViewModel);
-        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            await this.ViewModel.LoadDataAsync(e.Parameter as ItemViewModel);
+
             _dataTransferManager = DataTransferManager.GetForCurrentView();
             _dataTransferManager.DataRequested += OnDataRequested;
 
